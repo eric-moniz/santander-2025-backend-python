@@ -39,6 +39,12 @@ O terceiro desafio do curso. Este desafio possui 2 partes. A primeira parte cons
 
 * **Status:** Concluído ✅
 
+### 4. Aplicando Estruturas de Dados e Listas
+
+O quarto desafio do curso. Este desafio possui 2 partes. A primeira parte consiste criar um simulador de carrinho de compras que permita adicionar produtos e calcular o valor total da compra. O segunda parte consiste em criar um organizador de eventos que divida os participantes em grupos de acordo com o tema escolhido.
+
+* **Status:** Concluído ✅
+
 ---
 
 ## 📝 Como executar os códigos
@@ -79,7 +85,7 @@ python nome-do-arquivo.py
 
 * [X] Princípios de Desenvolvimento de Aplicações Python
 * [X] Operadores e Manipulação de String com Python
-* [ ] Estruturas de Dados e Listas com Python
+* [X] Estruturas de Dados e Listas com Python
 * [ ] Trabalhando com funções em Python
 * [ ] Orientação a Objetos e boas Práticas em Python
 * [ ] Trabalhando com Pacotes Python
