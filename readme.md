@@ -33,6 +33,12 @@ O segundo desafio do curso. Consiste em criar um sistema para depósito, saque e
 
 * **Status:** Concluído ✅
 
+### 3. Explorando Operadores e Manipulação de Strings
+
+O terceiro desafio do curso. Este desafio possui 2 partes. A primeira parte consiste em criar um aplicador de descontos e a segunda parte um validador de e-mail. Focando em operações com variáveis e operações com strings.
+
+* **Status:** Concluído ✅
+
 ---
 
 ## 📝 Como executar os códigos
@@ -72,7 +78,7 @@ python nome-do-arquivo.py
 ## 🎓 Certificados e Conquistas
 
 * [X] Princípios de Desenvolvimento de Aplicações Python
-* [ ] Operadores e Manipulação de String com Python
+* [X] Operadores e Manipulação de String com Python
 * [ ] Estruturas de Dados e Listas com Python
 * [ ] Trabalhando com funções em Python
 * [ ] Orientação a Objetos e boas Práticas em Python
