@@ -45,6 +45,24 @@ O quarto desafio do curso. Este desafio possui 2 partes. A primeira parte consis
 
 * **Status:** Concluído ✅
 
+### 5. Trabalhando Com funções em Python
+
+O quinto desafio do curso. São dois desafios, sendo um desafio de projeto e um desafio de código.
+
+#### Desafio de projeto
+
+* Otimizar o sistema bancário utilizando funções Python, este desafio consiste em usar o projeto de sistema bancário criado no desafio 2, otimizá-lo e deixando dinâmico utilizando funções. Também foi adicionado as funções de cadastrar cliente e criar conta.
+
+* **Status:** Concluído ✅
+
+#### Desafio de código, separado em duas partes:
+
+* Implementar sistema de reservas de hotel
+
+* Implementar sistema de atendimento médico
+
+* **Status:** Em andamento
+
 ---
 
 ## 📝 Como executar os códigos
