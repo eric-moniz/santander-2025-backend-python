@@ -55,13 +55,13 @@ O quinto desafio do curso. São dois desafios, sendo um desafio de projeto e um 
 
 * **Status:** Concluído ✅
 
-#### Desafio de código, separado em duas partes:
+#### Desafio de código, separado em duas partes
 
 * Implementar sistema de reservas de hotel
 
 * Implementar sistema de atendimento médico
 
-* **Status:** Em andamento
+* **Status:** Concluído ✅
 
 ---
 
@@ -104,7 +104,7 @@ python nome-do-arquivo.py
 * [X] Princípios de Desenvolvimento de Aplicações Python
 * [X] Operadores e Manipulação de String com Python
 * [X] Estruturas de Dados e Listas com Python
-* [ ] Trabalhando com funções em Python
+* [X] Trabalhando com funções em Python
 * [ ] Orientação a Objetos e boas Práticas em Python
 * [ ] Trabalhando com Pacotes Python
 * [ ] Integração Python com Banco de Dados
