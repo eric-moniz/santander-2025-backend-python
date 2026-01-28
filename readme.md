@@ -51,7 +51,7 @@ O quinto desafio do curso. São dois desafios, sendo um desafio de projeto e um 
 
 #### Desafio de projeto
 
-* Otimizar o sistema bancário utilizando funções Python, este desafio consiste em usar o projeto de sistema bancário criado no desafio 2, otimizá-lo e deixando dinâmico utilizando funções. Também foi adicionado as funções de cadastrar cliente e criar conta.
+* Otimizar o sistema bancário utilizando Programação Orientada à Objetos, este desafio consiste em reescrever o sistema bancário criado no desafio 2.
 
 * **Status:** Concluído ✅
 
@@ -60,6 +60,18 @@ O quinto desafio do curso. São dois desafios, sendo um desafio de projeto e um 
 * Implementar sistema de reservas de hotel
 
 * Implementar sistema de atendimento médico
+
+* **Status:** Concluído ✅
+
+### 6. Orientação a Objetos e boas Práticas em Python
+
+O sexto desafio, consiste em implementar Orientação a Objetos e boas práticas de código.
+
+#### Desafios de códigos
+
+* Implementar sistema de gestão de veículos
+
+* Implementar sistema de pedidos de um restaurante
 
 * **Status:** Concluído ✅
 
@@ -105,7 +117,7 @@ python nome-do-arquivo.py
 * [X] Operadores e Manipulação de String com Python
 * [X] Estruturas de Dados e Listas com Python
 * [X] Trabalhando com funções em Python
-* [ ] Orientação a Objetos e boas Práticas em Python
+* [X] Orientação a Objetos e boas Práticas em Python
 * [ ] Trabalhando com Pacotes Python
 * [ ] Integração Python com Banco de Dados
 * [ ] Desenvolvimento Orientado a Testes com Python
