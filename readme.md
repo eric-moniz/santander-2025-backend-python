@@ -75,6 +75,16 @@ O sexto desafio, consiste em implementar Orientação a Objetos e boas práticas
 
 * **Status:** Concluído ✅
 
+### 7. Trabalhando com Pacotes Python
+
+O sétimo desafio, consiste em dois desafios de código
+
+* Implementar sistema de controle de estoque
+
+* Implementar sistema de controle de acesso
+
+* **Status:** Concluído ✅
+
 ---
 
 ## 📝 Como executar os códigos
@@ -118,7 +128,7 @@ python nome-do-arquivo.py
 * [X] Estruturas de Dados e Listas com Python
 * [X] Trabalhando com funções em Python
 * [X] Orientação a Objetos e boas Práticas em Python
-* [ ] Trabalhando com Pacotes Python
+* [X] Trabalhando com Pacotes Python
 * [ ] Integração Python com Banco de Dados
 * [ ] Desenvolvimento Orientado a Testes com Python
 
