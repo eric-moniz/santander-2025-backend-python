@@ -1,9 +1,12 @@
 # Este arquivo configura o comportamento do Ruff de forma moderna
+line-length = 110
+
 [lint]
 # "F" (Pyflakes): Detecta variáveis e imports não usados
 # "I" (Isort): Ordena os imports ao salvar
 # "E", "W" (Pycodestyle): Erros e avisos de estilo
 select = ["F", "I", "E", "W"]
+
 
 [lint.pyflakes]
 # Se você quiser que ele não reclame de variáveis não usadas
