@@ -1,14 +1,9 @@
 from datetime import datetime
-from typing import TYPE_CHECKING
 
 from sqlalchemy import DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from workout_api.contrib.models import BaseModel
-
-if TYPE_CHECKING:
-    from workout_api.categorias.models import CategoriaModel
-    from workout_api.centro_treinamento.models import CentroTreinamentoModel
 
 
 class AtletaModel(BaseModel):
