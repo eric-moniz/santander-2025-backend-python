@@ -1,7 +1,12 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from workout_api.contrib.models import BaseModel
+
+if TYPE_CHECKING:
+    from workout_api.atleta.models import AtletaModel
 
 
 class CategoriaModel(BaseModel):
