@@ -85,6 +85,12 @@ O sétimo desafio, consiste em dois desafios de código
 
 * **Status:** Concluído ✅
 
+### 8. Desenvolvendo uma API com fastAPI, Python e Docker
+
+O oitavo desafio, consiste na criação de uma API assíncrona de um academia para uma competição de crossfit. Usando o framework FastAPI, irá permitir a construção eficiente dess aplicativo web, chamada workout_api.
+
+* **Status:** Concluído ✅
+
 ---
 
 ## 📝 Como executar os códigos
@@ -129,8 +135,8 @@ python nome-do-arquivo.py
 * [X] Trabalhando com funções em Python
 * [X] Orientação a Objetos e boas Práticas em Python
 * [X] Trabalhando com Pacotes Python
-* [ ] Integração Python com Banco de Dados
-* [ ] Desenvolvimento Orientado a Testes com Python
+* [X] Integração Python com Banco de Dados
+* [X] Desenvolvimento Orientado a Testes com Python
 
 ---
 
