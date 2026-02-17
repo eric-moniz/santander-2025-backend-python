@@ -6,4 +6,6 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
 class BaseModel(DeclarativeBase):
-    id: Mapped[uuid.UUID] = mapped_column(PG_UUID(as_uuid=True), default=uuid4, nullable=False)
+    id: Mapped[uuid.UUID] = mapped_column(
+        PG_UUID(as_uuid=True), default=uuid4, nullable=False
+    )

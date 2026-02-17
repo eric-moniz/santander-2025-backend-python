@@ -1,0 +1,16 @@
+default_language_version:
+  python: python
+
+exclude: ^(desafios-de-projeto/|workout-api/)
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      # Linter (equivalente ao flake8 + pyupgrade + etc)
+      - id: ruff
+        args:
+          - --fix
+
+      # Formatter (equivalente ao black)
+      - id: ruff-format

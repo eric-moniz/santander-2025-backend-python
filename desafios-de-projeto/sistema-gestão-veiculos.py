@@ -13,11 +13,7 @@ class Veiculo:
         try:
             ano_vigente = datetime.now().year
 
-            return (
-                "Veículo novo"
-                if ano_vigente - self.ano <= 20
-                else "Veículo antigo"
-            )
+            return "Veículo novo" if ano_vigente - self.ano <= 20 else "Veículo antigo"
         except Exception as e:
             print(f"Erro ao obter o ano: {e}")
 

@@ -15,7 +15,6 @@ LIMITE_SAQUES = 3
 
 
 while True:
-
     opcao = input(menu)
 
     if opcao == "d":
@@ -54,9 +53,7 @@ while True:
 
     elif opcao == "e":
         print("\n================ EXTRATO ================")
-        print(
-            "Não foram realizadas movimentações." if not extrato else extrato
-        )
+        print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("==========================================")
 
@@ -64,6 +61,4 @@ while True:
         break
 
     else:
-        print(
-            "Operação inválida, por favor selecione novamente a operação desejada."
-        )
+        print("Operação inválida, por favor selecione novamente a operação desejada.")

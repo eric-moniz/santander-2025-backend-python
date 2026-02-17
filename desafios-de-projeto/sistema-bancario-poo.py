@@ -81,9 +81,7 @@ class Cliente:
 
 
 class PessoaFisica(Cliente):
-    def __init__(
-        self, cpf: str, nome: str, data_nascimento: str, endereco: str
-    ):
+    def __init__(self, cpf: str, nome: str, data_nascimento: str, endereco: str):
         super().__init__(endereco)
         self.cpf = cpf
         self.nome = nome
@@ -145,9 +143,7 @@ class Conta:
 
 
 class ContaCorrente(Conta):
-    def __init__(
-        self, numero: int, cliente: Cliente, limite=500, limite_saques=3
-    ):
+    def __init__(self, numero: int, cliente: Cliente, limite=500, limite_saques=3):
         super().__init__(numero, cliente)
         self.limite = limite
         self.limite_saques = limite_saques
@@ -193,7 +189,6 @@ def main():
     contas = []
 
     while True:
-
         menu_texto = """\n
         ================ MENU ================
         [d]\tDepositar
@@ -250,9 +245,7 @@ def main():
             data = input("Data (dd-mm-aaaa): ")
             end = input("Endereço: ")
             clientes.append(
-                PessoaFisica(
-                    cpf=cpf, nome=nome, data_nascimento=data, endereco=end
-                )
+                PessoaFisica(cpf=cpf, nome=nome, data_nascimento=data, endereco=end)
             )
 
         elif opcao == "nc":
