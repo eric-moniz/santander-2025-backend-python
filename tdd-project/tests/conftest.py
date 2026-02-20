@@ -5,7 +5,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from store.core.config import settings
 from store.schemas.product import ProductIn, ProductUpdate
-from tests.factories import product_data
+from store.usecases.product import ProductUsecase
+from tests.factories import product_data, products_data
 
 
 @pytest.fixture
@@ -43,7 +44,16 @@ def product_up(product_id):
 
 @pytest.fixture
 async def product_inserted(product_in, mongo_client):
-    from store.usecases.product import ProductUsecase
-
     usecase = ProductUsecase(client=mongo_client)
     return await usecase.create(body=product_in)
+
+
+@pytest.fixture
+def products_in():
+    return [ProductIn(**product) for product in products_data()]
+
+
+@pytest.fixture
+async def products_inserted(products_in, mongo_client):
+    usecase = ProductUsecase(client=mongo_client)
+    return [await usecase.create(body=product_in) for product_in in products_in]
