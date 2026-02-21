@@ -1,3 +1,4 @@
+from decimal import Decimal
 from uuid import UUID
 
 import pytest
@@ -46,7 +47,7 @@ async def test_usecases_query_should_return_success(mongo_client):
 async def test_usecases_update_should_return_success(
     product_up, product_inserted, mongo_client
 ):
-    product_up.price = 7.500
+    product_up.price = Decimal("7.500")
     usecase = ProductUsecase(client=mongo_client)
     result = await usecase.update(id=product_inserted.id, body=product_up)
 
