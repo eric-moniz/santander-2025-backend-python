@@ -1,6 +1,7 @@
 from uuid import UUID
 
 import pytest
+from httpx import ASGITransport, AsyncClient
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from store.core.config import settings
@@ -25,6 +26,21 @@ async def clear_collections(mongo_client):
             continue
 
         await mongo_client.get_database()[collection_name].delete_many({})
+
+
+@pytest.fixture
+async def client() -> AsyncClient:
+    from store.main import app
+
+    async with AsyncClient(
+        transport=ASGITransport(app=app), base_url="http://test"
+    ) as ac:
+        yield ac
+
+
+@pytest.fixture
+def products_url() -> str:
+    return "/products/"
 
 
 @pytest.fixture

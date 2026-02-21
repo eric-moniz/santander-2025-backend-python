@@ -1,6 +1,8 @@
+from decimal import Decimal
 from uuid import UUID
 
 import pymongo
+from bson import Decimal128
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from store.core.config import settings
@@ -10,10 +12,8 @@ from store.schemas.product import ProductIn, ProductOut, ProductUpdate, ProductU
 
 
 class ProductUsecase:
-    def __init__(self, client: AsyncIOMotorClient | None = None) -> None:
-        self.client: AsyncIOMotorClient = client or AsyncIOMotorClient(
-            settings.DATABASE_URL
-        )
+    def __init__(self, client=None) -> None:
+        self.client = client or AsyncIOMotorClient(settings.DATABASE_URL)
         self.database = self.client.get_database()
         self.collection = self.database.get_collection("products")
 
@@ -37,11 +37,14 @@ class ProductUsecase:
         return [ProductOut(**item) async for item in self.collection.find()]
 
     async def update(self, id: UUID, body: ProductUpdate) -> ProductUpdateOut:
-        product = ProductUpdate(**body.model_dump(exclude_none=True))
+        update_data = body.model_dump(exclude_none=True, warnings=False)
+        for key, value in update_data.items():
+            if isinstance(value, Decimal):
+                update_data[key] = Decimal128(str(value))
 
         result = await self.collection.find_one_and_update(
             filter={"id": id},
-            update={"$set": product.model_dump(warnings=False)},
+            update={"$set": update_data},
             return_document=pymongo.ReturnDocument.AFTER,
         )
 
