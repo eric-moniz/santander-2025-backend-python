@@ -6,7 +6,8 @@ from bson import Decimal128
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from store.core.config import settings
-from store.core.exceptions import NotFoundException
+from store.core.datetime_utils import utc_now
+from store.core.exceptions import InsertionException, NotFoundException
 from store.models.product import ProductModel
 from store.schemas.product import ProductIn, ProductOut, ProductUpdate, ProductUpdateOut
 
@@ -19,7 +20,10 @@ class ProductUsecase:
 
     async def create(self, body: ProductIn) -> ProductOut:
         product_model = ProductModel(**body.model_dump())
-        await self.collection.insert_one(product_model.model_dump())
+        try:
+            await self.collection.insert_one(product_model.model_dump())
+        except Exception as exc:
+            raise InsertionException(message=str(exc))
 
         return ProductOut(**product_model.model_dump())
 
@@ -33,11 +37,22 @@ class ProductUsecase:
 
         return ProductOut(**result)
 
-    async def query(self) -> list[ProductOut]:
-        return [ProductOut(**item) async for item in self.collection.find()]
+    async def query(
+        self,
+        price_min: Decimal | None = None,
+        price_max: Decimal | None = None,
+    ) -> list[ProductOut]:
+        filters: dict = {}
+        if price_min is not None:
+            filters.setdefault("price", {})["$gt"] = Decimal128(str(price_min))
+        if price_max is not None:
+            filters.setdefault("price", {})["$lt"] = Decimal128(str(price_max))
+        return [ProductOut(**item) async for item in self.collection.find(filters)]
 
     async def update(self, id: UUID, body: ProductUpdate) -> ProductUpdateOut:
         update_data = body.model_dump(exclude_none=True, warnings=False)
+        if "updated_at" not in update_data:
+            update_data["updated_at"] = utc_now()
         for key, value in update_data.items():
             if isinstance(value, Decimal):
                 update_data[key] = Decimal128(str(value))

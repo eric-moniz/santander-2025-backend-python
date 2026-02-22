@@ -91,6 +91,12 @@ O oitavo desafio, consiste na criação de uma API assíncrona de um academia pa
 
 * **Status:** Concluído ✅
 
+### 9. Desenvolvendo uma API com fastAPI, Pyest, MongoDB e implementando TDD
+
+O nono e último desafio, Neste projeto implementamos o TDD em uma aplicação utilizando FastAPI juntamente com Pytest, utilizando o banco de dados MongoDB e realizando testes unitários e de integração, utilizando boas práticas.
+
+* **Status:** Concluído ✅
+
 ---
 
 ## 📝 Como executar os códigos

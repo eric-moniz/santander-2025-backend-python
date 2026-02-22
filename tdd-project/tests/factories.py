@@ -18,4 +18,13 @@ def products_data():
             "price": "10.500",
             "status": False,
         },
+        {"name": "Samsung Galaxy S23", "quantity": 8, "price": "4.200", "status": True},
+        {
+            "name": "Samsung Galaxy S24",
+            "quantity": 12,
+            "price": "5.999",
+            "status": True,
+        },
+        {"name": "Xiaomi 14 Pro", "quantity": 25, "price": "3.500", "status": True},
+        {"name": "Google Pixel 8 Pro", "quantity": 7, "price": "7.200", "status": True},
     ]

@@ -1,7 +1,9 @@
-from fastapi import APIRouter, Body, Depends, HTTPException, Path, status
+from decimal import Decimal
+
+from fastapi import APIRouter, Body, Depends, HTTPException, Path, Query, status
 from pydantic import UUID4
 
-from store.core.exceptions import NotFoundException
+from store.core.exceptions import InsertionException, NotFoundException
 from store.schemas.product import ProductIn, ProductOut, ProductUpdate, ProductUpdateOut
 from store.usecases.product import ProductUsecase
 
@@ -12,7 +14,13 @@ router = APIRouter(tags=["products"])
 async def post(
     body: ProductIn = Body(...), usecase: ProductUsecase = Depends()
 ) -> ProductOut:
-    return await usecase.create(body=body)
+    try:
+        return await usecase.create(body=body)
+    except InsertionException as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=exc.message,
+        )
 
 
 @router.get(path="/{id}", status_code=status.HTTP_200_OK)
@@ -26,8 +34,12 @@ async def get(
 
 
 @router.get(path="/", status_code=status.HTTP_200_OK)
-async def query(usecase: ProductUsecase = Depends()) -> list[ProductOut]:
-    return await usecase.query()
+async def query(
+    usecase: ProductUsecase = Depends(),
+    price_min: Decimal | None = Query(None),
+    price_max: Decimal | None = Query(None),
+) -> list[ProductOut]:
+    return await usecase.query(price_min=price_min, price_max=price_max)
 
 
 @router.patch(path="/{id}", status_code=status.HTTP_200_OK)

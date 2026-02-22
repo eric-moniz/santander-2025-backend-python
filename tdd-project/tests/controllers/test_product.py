@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 import pytest
 from fastapi import status
 
@@ -59,6 +61,21 @@ async def test_controller_query_should_return_success(client, products_url):
     assert len(response.json()) > 1
 
 
+@pytest.mark.usefixtures("products_inserted")
+async def test_controller_query_should_return_filtered_by_price(client, products_url):
+    response = await client.get(
+        products_url, params={"price_min": "5.000", "price_max": "8.000"}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()
+    assert isinstance(data, list)
+    assert len(data) > 0
+    for product in data:
+        assert Decimal(product["price"]) > Decimal("5.000")
+        assert Decimal(product["price"]) < Decimal("8.000")
+
+
 async def test_controller_patch_should_return_success(
     client, products_url, product_inserted
 ):
@@ -77,6 +94,19 @@ async def test_controller_patch_should_return_success(
         "quantity": 10,
         "price": "7.999",
         "status": True,
+    }
+
+
+async def test_controller_patch_should_return_not_found(client, products_url):
+    response = await client.patch(
+        f"{products_url}3e7a3b68-00d3-4cae-9a0a-f0fcfac5da2d",
+        json={"price": "7.999"},
+    )
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+    assert response.json() == {
+        "detail": "Product not found with filter:"
+        " UUID('3e7a3b68-00d3-4cae-9a0a-f0fcfac5da2d')"
     }
 
 
